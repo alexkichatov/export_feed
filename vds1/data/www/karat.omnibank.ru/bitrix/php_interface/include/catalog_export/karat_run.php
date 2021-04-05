@@ -1,14 +1,7 @@
 <?php
 
 //<title>Карат</title>
-// Выведем в файл данных название выбраного инфоблока
-$strName = "";
 
-// Переменная $IBLOCK_ID должна быть установлена
-// мастером экспорта или из профиля
-// Переменная $SETUP_FILE_NAME должна быть установлена 
-// мастером экспорта или из профиля
-//$IBLOCK_ID = IntVal($IBLOCK_ID);
 $SETUP_FILE_NAME = "/bitrix/catalog_export/karat.xml";
 $IBLOCK_ID = 2;
 // Модули каталога и инфоблоков уже подключены
@@ -18,12 +11,11 @@ $export = new \Bitrix\Main\XmlWriter(array(
     'file' => $SETUP_FILE_NAME,
     'create_file' => true,
     'charset' => SITE_CHARSET,
-    'lowercase' => true //приводить ли все теги к нижнему регистру (для педантов)
+    'lowercase' => true //приводить ли все теги к нижнему регистру 
         ));
 
 //открываем файл
 $export->openFile();
-//обрамляем массив тегом
 
 $export->writeBeginTag('yml_catalog date="' . date('Y-m-d H:i') . '"');
 $export->writeBeginTag('shop');
@@ -43,7 +35,6 @@ $dbElement = \Bitrix\Iblock\Elements\ElementCatalogTable::getList([
         ]);
 
 while ($dbElementItem = $dbElement->fetch()) {
-    // $export->writeItem($dbElementItem, 'product3');
     $export->writeBeginTag('product');
     $export->writeFullTag('ARTICLE', $dbElementItem['ARTICLEVALUE']);
     $export->writeFullTag('CATEGORY', $dbElementItem['SECTION']);
@@ -67,8 +58,7 @@ while ($dbElementItem = $dbElement->fetch()) {
                 ));
 
                 while ($arEnum = $rsEnum->fetch()) {
-                    $dbElementItem['IBLOCK_ELEMENTS_ELEMENT_CATALOG_' . $arParam . '_VALUE'] = $arEnum['VALUE'];
-                    $export->writeParamTag('param name="' . $param_name . '" code="' . mb_strtolower($arParam) . '"', 'param', $dbElementItem['IBLOCK_ELEMENTS_ELEMENT_CATALOG_' . $arParam . '_VALUE']);
+                    $export->writeParamTag('param name="' . $param_name . '" code="' . mb_strtolower($arParam) . '"', 'param', $arEnum['VALUE']);
                 }
             } else {
                 $export->writeParamTag('param name="' . $param_name . '" code="' . mb_strtolower($arParam) . '"', 'param', $dbElementItem['IBLOCK_ELEMENTS_ELEMENT_CATALOG_' . $arParam . '_VALUE']);
@@ -76,7 +66,8 @@ while ($dbElementItem = $dbElement->fetch()) {
         }
     }
 
-    $bdSKU = CCatalogSKU::getOffersList($dbElementItem['ID'], 0, array('ACTIVE' => 'Y'), array('ID', 'IBLOCK_ID', 'WEIGHT', 'PURCHASING_PRICE', 'QUANTITY', 'REG_NUMBER', 'SIZE', 'VAT', 'AMOUNT'), array("CODE" => array('GEM', 'SIZE', 'WEIGHT', 'WEIGHT_GEM', 'WEIGHT_METAL', 'REG_NUMBER')));
+    $bdSKU = CCatalogSKU::getOffersList($dbElementItem['ID'], 0, array('ACTIVE' => 'Y'), array('ID', 'IBLOCK_ID', 'PURCHASING_PRICE', 'VAT'), array("CODE" => array('GEM', 'SIZE', 'WEIGHT', 'WEIGHT_GEM', 'WEIGHT_METAL', 'REG_NUMBER')));
+    
     $export->writeBeginTag('offers');
 
     foreach ($bdSKU[$dbElementItem['ID']] as $arSKU) {
