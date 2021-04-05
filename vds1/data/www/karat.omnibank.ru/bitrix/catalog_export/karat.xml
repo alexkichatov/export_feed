@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="2021-04-05 13:04">
+	<shop>
+		<products>
+			<product>
+				<article>1431131/01-А50Д-433</article>
+				<category>Кольца</category>
+				<name>Кольцо из красного золота 585 пробы с бриллиантом, изумрудом</name>
+				<description>Изумруд и бриллианты в обрамлении красного золота. Неувядающая классическая красота этого украшения сделала его истинным шедевром ювелирного искусства, который займет достойное место в Вашей коллекции и будет радовать Вас долгие годы!</description>
+				<picture>http://karat.omnibank.ru/upload/iblock/325/325b24d66bc5092dd48e8f22efecee00.jpg</picture>
+				<param name="Металл, проба, цвет" code="metal_alloy_color">Золото 585 красный</param>
+				<param name="Бренд" code="brand_ref">АДАМАС</param>
+				<param name="Тип вставки" code="gem">Бриллиант</param>
+				<param name="Размер камней" code="gem">Бриллиант</param>
+				<param name="Группа вставок" code="gem_group">Изумруд + Бриллиант</param>
+				<param name="Количество камней" code="number_stones">5</param>
+				<param name="Обработка" code="plating">Алмазная огранка</param>
+				<param name="Пол" code="gender">Для женщин</param>
+				<param name="Вид замка" code="earrings_lock">Пуссеты</param>
+				<param name="Гарнитур" code="complect" />
+				<param name="Товарный классификатор" code="tm_group_name">Цепь цельная</param>
+				<param name="Вид ПУ" code="vid_pu">Браслет сборный из литьевых или штампованных элементов</param>
+				<param name="Группа ТК" code="tk_group">Браслет фасонный</param>
+				<offers>
+					<offer quantity="100" stock="основной склад">
+						<barcode>2070006809271</barcode>
+						<price>1999.00</price>
+						<price_purchase />
+						<vat />
+						<gem>Бриллиант Бр Кр57 3/6А 0,078 кар. 8 шт.; Изумруд Кв 4/3 0,125 кар. 1 шт.</gem>
+						<size>16.5</size>
+						<weight>2.8</weight>
+						<weight_gem>1.2</weight_gem>
+						<weight_metal>1.6</weight_metal>
+						<reg_number>123456</reg_number>
+					</offer>
+					<offer quantity="100" stock="основной склад">
+						<barcode>2070006809271</barcode>
+						<price>1970.00</price>
+						<price_purchase />
+						<vat />
+						<gem>Бриллиант Бр Кр3 3/6А 0,045 кар. 2 шт.; Изумруд Кв 4/3 0,125 кар. 1 шт.</gem>
+						<size>16.0</size>
+						<weight>2.8</weight>
+						<weight_gem>1.1</weight_gem>
+						<weight_metal>1.5</weight_metal>
+						<reg_number>476052</reg_number>
+					</offer>
+				</offers>
+			</product>
+		</products>
+		<shop>
+		</yml_catalog>
